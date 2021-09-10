@@ -1,0 +1,28 @@
+-- -- Governance Deployment Steps:
+
+-- 1. Deploy Timelock
+-- 2. Set Timelock as Unitroller's pending admin
+-- 3. Queue txn in Timelock to accept Unitroller's admin rights
+-- 4. Execute txn in Timelock to accept Unitroller's admin rights
+-- 5. Queue and Execute txn in Timelock to accept CToken's admin rights
+-- 6. Deploy Governor Delegate
+-- 7. Deploy Governor Delegator
+-- 8. Timelock Queue Txn to Set Governor as PendingAdmin
+-- 9. Timelock Execute Txn to Set Governor as PendingAdmin
+-- 10. Initiate Governor
+--
+
+-- 1. Input in seconds
+Timelock Deploy Standard Default 300
+
+-- 2.
+Unitroller SetPendingAdmin (Timelock Address)
+
+-- 6.
+GovernorBravo Deploy BravoDelegate GovernorBravoDelegate
+
+-- 7.
+GovernorBravo Deploy BravoDelegator GovernorBravoDelegator (Address Timelock) (Address Comp) (Address Default) (Address GovernorBravoDelegate) 40 1 100000e18
+
+
+Print "\nDeployment Done, Press 'Ctrl + c' to close this script"

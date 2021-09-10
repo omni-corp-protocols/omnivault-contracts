@@ -1,0 +1,38 @@
+{
+    "Unitroller": {
+        "description": "Unitroller",
+        "address": "0x473459B8b567B4C30DbdF0CafA63B93Fc2Acb2AA"
+    },
+    "Contracts": {
+        "Unitroller": "0x473459B8b567B4C30DbdF0CafA63B93Fc2Acb2AA",
+        "Comptroller": "0x473459B8b567B4C30DbdF0CafA63B93Fc2Acb2AA",
+        "WhitePaperInterestRateModel_2_30": "0xf1fb3CE55C8000C77452937417e8F5D82FDa2730"
+    },
+    "Constructors": {
+        "Unitroller": "0x",
+        "Comptroller": "0x",
+        "WhitePaperInterestRateModel_2_30": "0x00000000000000000000000000000000000000000000000000470de4df8200000000000000000000000000000000000000000000000000000429d069189e0000"
+    },
+    "Blocks": {
+        "Unitroller": 10786016,
+        "Comptroller": 10786019,
+        "WhitePaperInterestRateModel_2_30": 10786030
+    },
+    "Comptroller": {
+        "Comptroller": {
+            "address": "0x03b829F5418bd64057BC47D779A8330Aa97E6117",
+            "contract": "Comptroller",
+            "description": "Standard Comptroller Impl"
+        }
+    },
+    "InterestRateModel": {
+        "WhitePaperInterestRateModel_2_30": {
+            "name": "WhitePaperInterestRateModel_2_30",
+            "contract": "WhitePaperInterestRateModel",
+            "description": "WhitePaper baseRate=20000000000000000 multiplier=300000000000000000",
+            "base": "20000000000000000",
+            "slope": "300000000000000000",
+            "address": "0xf1fb3CE55C8000C77452937417e8F5D82FDa2730"
+        }
+    }
+}
