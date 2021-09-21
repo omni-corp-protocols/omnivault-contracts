@@ -47,6 +47,17 @@ contract CErc20 is CToken, CErc20Interface {
     }
 
     /**
+     * @notice Sender supplies Max assets into the market and receives cTokens in exchange
+     * @dev Accrues interest whether or not the operation succeeds, unless reverted
+     * @return uint 0=success, otherwise a failure (see ErrorReporter.sol for details)
+     */
+    function mintMax() external returns (uint) {
+        uint mintAmount = EIP20Interface(underlying).balanceOf(msg.sender);
+        (uint err,) = mintInternal(mintAmount);
+        return err;
+    }
+
+    /**
      * @notice Sender redeems cTokens in exchange for the underlying asset
      * @dev Accrues interest whether or not the operation succeeds, unless reverted
      * @param redeemTokens The number of cTokens to redeem into underlying
