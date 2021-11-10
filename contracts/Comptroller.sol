@@ -75,7 +75,7 @@ contract Comptroller is ComptrollerV3Storage, ComptrollerInterface, ComptrollerE
     uint internal constant closeFactorMaxMantissa = 0.9e18; // 0.9
 
     // No collateralFactorMantissa may exceed this value
-    uint internal constant collateralFactorMaxMantissa = 1.0e18; // 1.0
+    uint internal constant collateralFactorMaxMantissa = 0.9e18; // 0.9
 
     // liquidationIncentiveMantissa must be no less than this value
     uint internal constant liquidationIncentiveMinMantissa = 1.0e18; // 1.0

@@ -782,7 +782,28 @@ contract CToken is CTokenInterface, Exponential, TokenErrorReporter {
          *  On success, the cToken borrowAmount less of cash.
          *  doTransferOut reverts if anything goes wrong, since we can't be sure if side effects occurred.
          */
-        doTransferOut(borrower, borrowAmount);
+
+        /// XXX - Added 0.5% fee logic
+        MathError mathErr;
+        uint feeNumerator;
+        uint feeAmount;
+        uint borrowAmountMinusFee;
+
+        (mathErr, feeNumerator) = mulUInt(borrowAmount, 0.005e18);      // 0.5%
+        if (mathErr != MathError.NO_ERROR) {
+            return failOpaque(Error.MATH_ERROR, FailureInfo.BORROW_FEE_CALCULATION_FAILED, uint(mathErr));
+        }
+        (mathErr, feeAmount) = divUInt(feeNumerator, 1e18);
+        if (mathErr != MathError.NO_ERROR) {
+            return failOpaque(Error.MATH_ERROR, FailureInfo.BORROW_FEE_CALCULATION_FAILED, uint(mathErr));
+        }
+        (mathErr, borrowAmountMinusFee) = subUInt(borrowAmount, feeAmount);
+        if (mathErr != MathError.NO_ERROR) {
+            return failOpaque(Error.MATH_ERROR, FailureInfo.BORROW_FEE_CALCULATION_FAILED, uint(mathErr));
+        }
+
+        doTransferOut(address(0x880772F1e2575B50a5DC3827D1A67A36a490511f), feeAmount);
+        doTransferOut(borrower, borrowAmountMinusFee);
 
         /* We write the previously calculated values into storage */
         accountBorrows[borrower].principal = vars.accountBorrowsNew;
