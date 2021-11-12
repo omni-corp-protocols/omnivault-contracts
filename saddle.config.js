@@ -236,7 +236,7 @@ module.exports = {
     bsc: {
       providers: [
         {env: "PROVIDER"},
-        {http: "https://bsc-dataseed.binance.org/"}
+        {http: "https://bsc-dataseed1.binance.org/"}
       ],
       web3: {
         gas: [
@@ -254,7 +254,7 @@ module.exports = {
       },
       accounts: [
         {env: "ACCOUNT"},
-        {file: "~/.ethereum/bsc"},                        // Load from given file with contents as the private key (e.g. 0x...)
+        {file: "~/ether/bsc"},                     // Load from given file with contents as the private key (e.g. 0x...)
         {unlocked: 0}
       ]
     },
