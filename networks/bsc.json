@@ -1,11 +1,11 @@
 {
     "Unitroller": {
         "description": "Unitroller",
-        "address": "0xdaD9b52fE5ffd4331aaA02321f1ffa400C827EC8"
+        "address": "0x52CA265749527d86C4666788116b0CDF6012bD5F"
     },
     "Contracts": {
-        "Unitroller": "0xdaD9b52fE5ffd4331aaA02321f1ffa400C827EC8",
-        "Comptroller": "0xdaD9b52fE5ffd4331aaA02321f1ffa400C827EC8",
+        "Unitroller": "0x52CA265749527d86C4666788116b0CDF6012bD5F",
+        "Comptroller": "0x52CA265749527d86C4666788116b0CDF6012bD5F",
         "WhitePaperInterestRateModel_2_30": "0x7a8aA21386a39b57597aaEf91802Bfc68da1Ec33"
     },
     "Constructors": {
@@ -14,13 +14,13 @@
         "WhitePaperInterestRateModel_2_30": "0x00000000000000000000000000000000000000000000000000470de4df8200000000000000000000000000000000000000000000000000000429d069189e0000"
     },
     "Blocks": {
-        "Unitroller": 13156869,
-        "Comptroller": 13156872,
+        "Unitroller": 13211444,
+        "Comptroller": 13211447,
         "WhitePaperInterestRateModel_2_30": 13148285
     },
     "Comptroller": {
         "Comptroller": {
-            "address": "0x6B2E3ceD865D00d5C11cAeC9C00F63F4b381B16b",
+            "address": "0x763348523585862b0651DD6fa0C29f96FBA0d75F",
             "contract": "Comptroller",
             "description": "Standard Comptroller Impl"
         }
