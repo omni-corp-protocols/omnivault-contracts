@@ -783,13 +783,13 @@ contract CToken is CTokenInterface, Exponential, TokenErrorReporter {
          *  doTransferOut reverts if anything goes wrong, since we can't be sure if side effects occurred.
          */
 
-        /// XXX - Added 0.5% fee logic
+        /// XXX - Added 1% fee logic
         MathError mathErr;
         uint feeNumerator;
         uint feeAmount;
         uint borrowAmountMinusFee;
 
-        (mathErr, feeNumerator) = mulUInt(borrowAmount, 0.005e18);      // 0.5%
+        (mathErr, feeNumerator) = mulUInt(borrowAmount, 0.01e18);      // 1%
         if (mathErr != MathError.NO_ERROR) {
             return failOpaque(Error.MATH_ERROR, FailureInfo.BORROW_FEE_CALCULATION_FAILED, uint(mathErr));
         }
