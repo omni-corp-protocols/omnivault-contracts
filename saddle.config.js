@@ -258,6 +258,31 @@ module.exports = {
         {unlocked: 0}
       ]
     },
+    avax: {
+      providers: [
+        {env: "PROVIDER"},
+        {http: "https://api.avax.network/ext/bc/C/rpc"}
+      ],
+      web3: {
+        gas: [
+          {env: "GAS"},
+          {default: "8000000"}
+        ],
+        gas_price: [
+          {env: "GAS_PRICE"},
+          {default: "40000000000"}
+        ],
+        options: {
+          transactionConfirmationBlocks: 1,
+          transactionBlockTimeout: 5
+        }
+      },
+      accounts: [
+        {env: "ACCOUNT"},
+        {file: "~/.ethereum/avax"},                        // Load from given file with contents as the private key (e.g. 0x...)
+        {unlocked: 0}
+      ]
+    },
     polygon: {
       providers: [
         {env: "PROVIDER"},
